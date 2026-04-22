@@ -28,7 +28,7 @@ const Navbar = () => {
           <div className="bg-gray-900 shadow-md py-2">
   <div className="w-10/12  mx-auto px-4 flex items-center justify-between">
     
-    {/* Logo */}
+  
     <Link href="/">
       <h2 className="text-white font-bold text-xl md:text-2xl">
         auth<span className="text-green-500">King</span>
@@ -36,7 +36,7 @@ const Navbar = () => {
 
     </Link>
 
-    {/* Menu */}
+ 
     <ul className="flex items-center gap-2 md:gap-4 font-semibold">
       {navLinks.map((link) => (
         <li key={link.path} className="flex ">
