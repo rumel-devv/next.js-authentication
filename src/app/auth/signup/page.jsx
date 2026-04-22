@@ -1,4 +1,5 @@
 "use client";
+import WelcomePage from "@/Components/Welcome";
 import { authClient } from "@/lib/auth-client";
 import {
   Button,
@@ -9,6 +10,7 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
+import { toast } from "react-toastify";
 
 const SignUpPage =  () => {
 
@@ -26,14 +28,12 @@ const SignUpPage =  () => {
 
 console.log('user data respone',{data,error});
 if(error){
-  alert('error signing up' + error.message,{position: "top-center",
-autoClose:500,})
+  alert('error signing up' + error.message)
 }
 
 if(data){
-  alert('Sign up successfull',{position: "top-center",
-autoClose:500})
-  window.location.href = "/";
+  alert('Sign up successfull')
+  window.location.href = "/welcome";
 }
 
   };
