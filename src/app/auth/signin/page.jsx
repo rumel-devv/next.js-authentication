@@ -10,60 +10,38 @@ import {
   TextField,
 } from "@heroui/react";
 
-const SignUpPage =  () => {
-
+const SignInPage = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    
-    const UserData = Object.fromEntries(formData.entries())
-    
-    const { data, error } = await authClient.signUp.email({
-    name: UserData.name,
-    email: UserData.email,
-    password: UserData.password,
-});
+    const UserData = Object.fromEntries(formData.entries());
 
-console.log('user data respone',{data,error});
-if(error){
-  alert('error signing up' + error.message)
-}
+    const { data, error } = await authClient.signIn.email({
+       email: UserData.email,
+       password: UserData.password,
+      rememberMe: true,
+    });
 
-if(data){
-  alert('Sign up successfull')
-  window.location.href = "/";
-}
+    console.log("user data respone", { data, error });
+    if (error) {
+      alert("error signin" + error.message);
+    }
 
+    if (data) {
+      alert("Sign in successfull");
+      window.location.href = "/";
+    }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900">
-      <div className="bg-gray-600 backdrop-blur-lg p-6 rounded-2xl shadow-lg border border-white/20">
+      <div className="bg-white/70 backdrop-blur-lg p-6 rounded-2xl shadow-lg border border-white/20">
         <h2 className="text-2xl font-bold text-white text-center mb-4">
-          Sign Up
+          Sign in
         </h2>
 
         <Form className="flex w-80 flex-col gap-4" onSubmit={onSubmit}>
-          {/* Name */}
-           <TextField
-                 isRequired
-                 name="name"
-                 validate={(value) => {
-                   if (value.length < 3) {
-                     return "Name must be at least 3 characters";
-                   }
-                   return null;
-                 }}
-               >
-                 <Label className="text-white">Name</Label>
-                 <br />
-                 <Input
-                    name="name"
-                   className="bg-white/50 text-white py-1 px-2 rounded-md"
-                   placeholder="enter your name"
-                 />
-                 <FieldError />
-               </TextField>
+         
 
           {/* Email */}
           <TextField
@@ -80,7 +58,7 @@ if(data){
             <Label className="text-white">Email</Label>
             <br />
             <Input
-            name="email"
+              name="email"
               className="bg-white/50 text-white py-1 px-2 rounded-md"
               placeholder="enter your email"
             />
@@ -109,7 +87,7 @@ if(data){
             <Label className="text-white">Password</Label>
             <br />
             <Input
-               name="password"
+              name="password"
               className="bg-white/50 text-white py-1 px-2 rounded-md"
               placeholder="Enter your password"
             />
@@ -126,7 +104,10 @@ if(data){
               Submit
             </Button>
 
-            <Button className="w-full bg-blue-500 text-white py-1 rounded-md  " type="reset" >
+            <Button
+              className="w-full bg-blue-500 text-white py-1 rounded-md  "
+              type="reset"
+            >
               Reset
             </Button>
           </div>
@@ -136,4 +117,4 @@ if(data){
   );
 };
 
-export default SignUpPage;
+export default SignInPage;
