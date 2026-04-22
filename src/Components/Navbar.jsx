@@ -31,7 +31,7 @@ const Navbar = () => {
     {/* Logo */}
     <Link href="/">
       <h2 className="text-white font-bold text-xl md:text-2xl">
-        Keen<span className="text-green-500">Keeper</span>
+        auth<span className="text-green-500">King</span>
       </h2>
     </Link>
 
