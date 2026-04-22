@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const AboutPage = () => {
@@ -51,11 +52,11 @@ const AboutPage = () => {
 
       </div>
 
-      <div className="text-center pb-16">
+      <Link href='/auth/signup' className="flex items-center justify-center pb-16">
         <button className="bg-green-500 hover:bg-green-600 px-6 py-3 rounded-lg font-semibold transition">
           Get Started
         </button>
-      </div>
+      </Link>
 
     </div>
   );

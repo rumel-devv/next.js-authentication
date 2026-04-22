@@ -23,7 +23,7 @@ const Navbar = () => {
   const { data, isPending } = useSession();
 
   if (isPending) {
-    return <div>Loading...</div>;
+    return <div className="flex justify-center items-center py-2">Loading...</div>;
   }
 
   // console.log("Session data in navbar", data);
