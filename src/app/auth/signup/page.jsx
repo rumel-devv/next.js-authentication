@@ -26,11 +26,13 @@ const SignUpPage =  () => {
 
 console.log('user data respone',{data,error});
 if(error){
-  alert('error signing up' + error.message)
+  alert('error signing up' + error.message,{position: "top-center",
+autoClose:500,})
 }
 
 if(data){
-  alert('Sign up successfull')
+  alert('Sign up successfull',{position: "top-center",
+autoClose:500})
   window.location.href = "/";
 }
 

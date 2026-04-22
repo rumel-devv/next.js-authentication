@@ -12,6 +12,7 @@ import {
 } from "@heroui/react";
 import {Eye, EyeSlash} from "@gravity-ui/icons";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 const SignInPage = () => {
 
@@ -30,11 +31,11 @@ const SignInPage = () => {
 
     console.log("user data respone", { data, error });
     if (error) {
-      alert("error signin" + error.message);
+      toast.error("error signin" + error.message);
     }
 
     if (data) {
-      alert("Sign in successfull");
+      toast.success("Sign in successfull");
       window.location.href = "/";
     }
   };

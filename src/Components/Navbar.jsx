@@ -2,14 +2,18 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FaHome } from "react-icons/fa";
+import { FaHome, FaSignInAlt } from "react-icons/fa";
 import { IoMdTimer } from "react-icons/io";
-import { ImStatsDots } from "react-icons/im";
 import { signOut, useSession } from "@/lib/auth-client";
+import { MdRoundaboutRight } from "react-icons/md";
+import { GrDashboard } from "react-icons/gr";
 
 const navLinks = [
   { name: "Home", path: "/", icon: <FaHome /> },
   { name: "Sign Up", path: "/auth/signup", icon: <IoMdTimer /> },
+  { name: "About", path: "/about", icon: <MdRoundaboutRight/> },
+  { name: "Dashboard", path: "/dashboard" ,icon: <GrDashboard/>},
+  
   // { name: "Sign In", path: "/auth/signin", icon: <ImStatsDots /> },
 ];
 
@@ -22,7 +26,7 @@ const Navbar = () => {
     return <div>Loading...</div>;
   }
 
-  console.log("Session data in navbar", data);
+  // console.log("Session data in navbar", data);
   const user = data?.user;
 
   const linkStyle = (path) =>
