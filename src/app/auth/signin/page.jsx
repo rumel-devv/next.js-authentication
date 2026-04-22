@@ -35,7 +35,7 @@ const SignInPage = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-900">
-      <div className="bg-white/70 backdrop-blur-lg p-6 rounded-2xl shadow-lg border border-white/20">
+      <div className="bg-white/20 backdrop-blur-lg p-6 rounded-2xl shadow-lg border border-white/20">
         <h2 className="text-2xl font-bold text-white text-center mb-4">
           Sign in
         </h2>

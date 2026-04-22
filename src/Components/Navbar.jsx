@@ -18,7 +18,7 @@ const Navbar = () => {
   const pathname = usePathname();
 
   const linkStyle = (path) =>
-    `flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-200 text-sm md:text-base whitespace-nowrap ${
+    `flex items-center gap-2 px-3 py-1 rounded-lg transition-all duration-200 text-sm md:text-base whitespace-nowrap ${
       pathname === path
         ? "bg-white text-green-700"
         : "text-white hover:bg-white/20"
@@ -31,7 +31,7 @@ const Navbar = () => {
   
     <Link href="/">
       <h2 className="text-white font-bold text-xl md:text-2xl">
-        auth<span className="text-green-500">King</span>
+        King<span className="text-green-500">Space</span>
       </h2>
 
     </Link>
