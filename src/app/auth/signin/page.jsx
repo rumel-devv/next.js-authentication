@@ -6,11 +6,17 @@ import {
   FieldError,
   Form,
   Input,
+  InputGroup,
   Label,
   TextField,
 } from "@heroui/react";
+import {Eye, EyeSlash} from "@gravity-ui/icons";
+import { useState } from "react";
 
 const SignInPage = () => {
+
+  const [isVisible, setIsVisible] = useState(false);
+
   const onSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -66,7 +72,7 @@ const SignInPage = () => {
           </TextField>
 
           {/* Password */}
-          <TextField
+          {/* <TextField
             isRequired
             minLength={8}
             name="password"
@@ -93,7 +99,30 @@ const SignInPage = () => {
             />
             <br />
             <FieldError />
-          </TextField>
+          </TextField> */}
+
+           <TextField className="w-full " name="password">
+      <Label className="text-white">Password</Label>
+      <InputGroup>
+        <InputGroup.Input
+          className="w-full "
+          type={isVisible ? "text" : "password"}
+          name="password"
+          placeholder="Your password"
+        />
+        <InputGroup.Suffix className="pr-0">
+          <Button
+            isIconOnly
+            aria-label={isVisible ? "Hide password" : "Show password"}
+            size="sm"
+            variant="ghost"
+            onPress={() => setIsVisible(!isVisible)}
+          >
+            {isVisible ? <Eye className="size-4" /> : <EyeSlash className="size-4" />}
+          </Button>
+        </InputGroup.Suffix>
+      </InputGroup>
+    </TextField>
 
           {/* Buttons */}
           <div className="flex gap-2">
