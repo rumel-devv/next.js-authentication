@@ -33,6 +33,7 @@ const Navbar = () => {
       <h2 className="text-white font-bold text-xl md:text-2xl">
         auth<span className="text-green-500">King</span>
       </h2>
+
     </Link>
 
     {/* Menu */}
